@@ -12,7 +12,7 @@ export default function ResumeTemp({ onSelect }){
             {templates.map((template) => (
                 <div 
                     key ={template.id}
-                    onClick={() =. onSelect(template)}
+                    onClick={() => onSelect(template)}
                     className="cursor-pointer border rounded shadow hover:shadow-lg transition"
                 >
                     <img src={template.previewImage} alt={template.name} className="w-full" />
