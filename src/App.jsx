@@ -1,6 +1,10 @@
 import ResumeTemp from "./ResumeTemp";
+import React, {useState} from "react";
+import TemplatePreview from "./TemplatePreview";
 
 function App() {
+  const [selectedTemplate, setSelectedtemplate] = useState(null);
+
   return (
     <div className="min-h-screen bg-gray-200 p-6">
       <h1 className="text-4xl font-bold text-sideleft mb-8 text-gray-800">
@@ -40,9 +44,10 @@ function App() {
             Improve Your existing Resume/CV
           </p>
         </div>
-
-      <div></div>
       </div>
+      <h1 className="text-3xl font-bold text-center mt-4">choose a Resume Template</h1>
+      <ResumeTemp onSelect={setSelectedtemplate} />
+      <TemplatePreview selectedTemplate={selectedTemplate} />
     </div>
     
   );
