@@ -1,6 +1,8 @@
+import ResumeTemp from "./ResumeTemp";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-500 p-6">
+    <div className="min-h-screen bg-gray-200 p-6">
       <h1 className="text-4xl font-bold text-sideleft mb-8 text-gray-800">
         Resume Builder SA
       </h1>
@@ -38,8 +40,11 @@ function App() {
             Improve Your existing Resume/CV
           </p>
         </div>
+
+      <div></div>
       </div>
     </div>
+    
   );
 }
 
