@@ -32,48 +32,51 @@ function App() {
         </a>
       </nav>
 
-      <div className="bg-white dark:bg-grey-800 rounded-1g px-6 py-8 ring shadow-xl ring-gray-900/5">
+      
+  <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
+    {/* First Card */}
+    <div className="flex-1 bg-white rounded-lg shadow p-8">
       <div>
-        <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-1g">
-          <svg
-            class="h-6 w-6 texyy-white"
+        <svg
+          className="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          {/* You can add a path here */}
+        </svg>
+      </div>
+      <h3 className="text-red-900 mt-5 text-base font-medium tracking-tight">
+        Create New Resume/CV
+      </h3>
+      <p className="text-gray-500 mt-2">
+        Thjjdjjfbhffhbfhfbfhfbh
+      </p>
+    </div>
 
+    {/* Second Card */}
+    <div className="flex-1 bg-white dark:bg-gray-800 rounded-lg px-6 py-8 shadow-xl ring ring-gray-900/5">
+      <div>
+          <svg
+            className="h-6 w-6 text-white"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             aria-hidden="true"
           >
-      
+            {/* You can add a path here */}
           </svg>
-        </span>
-      </div>
-      <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight">Create New-Resume/CV</h3>
-      <p class="text-grey-500 dark:text-gray-400 mt-2 text">
-        Thjjdjjfbhffhbfhfbfhfbh
-      </p>
-    </div>
-
-    
-      <div className="bg-white dark:bg-grey-800 rounded-1g px-6 py-8 ring shadow-xl ring-gray-900/5">
-        <div>
-          <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-1g">
-            <svg
-              class="h-6 w-6 texyy-white"
-
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-          
-            </svg>
-          </span>
         </div>
-        <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight">Improve Your Resume/CV</h3>
-        <p class="text-grey-500 dark:text-gray-400 mt-2 text">
+        <h3 className="text-green-900 dark:text-black mt-5 text-base font-medium tracking-tight">
+          Improve Your Resume/CV
+        </h3>
+        <p className="text-gray-500 dark:text-gray-400 mt-2">
           Thjjdjjfbhffhbfhfbfhfbh
         </p>
-      </div>
+        </div>
+  </div>
+
 
       <h1 className="text-3xl font-bold text-center mt-4">choose a Resume Template</h1>
       <ResumeTemp onSelect={setSelectedtemplate} />
