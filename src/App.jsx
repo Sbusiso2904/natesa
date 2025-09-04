@@ -33,7 +33,7 @@ function App() {
       </nav>
 
       
-  <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
+  <div className="flex flex-col md:flex-row gap-20 max-w-5xl mx-auto">
     {/* First Card */}
     <div className="flex-1 bg-white rounded-lg shadow p-8 hover:underline">
       <div>
