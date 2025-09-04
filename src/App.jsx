@@ -35,7 +35,7 @@ function App() {
       
   <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
     {/* First Card */}
-    <div className="flex-1 bg-white rounded-lg shadow p-8">
+    <div className="flex-1 bg-white rounded-lg shadow p-8 hover:underline">
       <div>
         <svg
           className="h-6 w-6 text-white"
@@ -56,7 +56,7 @@ function App() {
     </div>
 
     {/* Second Card */}
-    <div className="flex-1 bg-white dark:bg-gray-800 rounded-lg px-6 py-8 shadow-xl ring ring-gray-900/5">
+   <div className="flex-1 bg-white rounded-lg shadow p-8">
       <div>
           <svg
             className="h-6 w-6 text-white"
