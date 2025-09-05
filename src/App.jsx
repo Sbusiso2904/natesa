@@ -2,7 +2,6 @@ import ResumeTemp from "./ResumeTemp";
 import React, {useState} from "react";
 import TemplatePreview from "./TemplatePreview";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import CreateResume from "./pages/CreateResume";
@@ -10,6 +9,19 @@ import ImproveResume from "./pages/ImproveResume";
 
 function App() {
   const [selectedTemplate, setSelectedtemplate] = useState(null);
+  const [currentPage, setCurrentPage] = useState("home");
+
+    const renderPage = () => {
+    switch (currentPage) {
+      case "create":
+        return <CreateResume />;
+      case "improve":
+        return <ImproveResume />;
+      default:
+        return <Home />;
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-gray-200 p-6">
@@ -18,6 +30,9 @@ function App() {
       </h1>
 
       <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
+        <a href="#Home" className="hover:underline">
+          Home
+        </a>
         <a href="#Signin" className="hover:underline">
           Sign in
         </a>
@@ -39,67 +54,65 @@ function App() {
       </nav>
 
       
-  <div className="flex flex-col md:flex-row gap-20 max-w-5xl mx-auto">
-    {/* First Card */}
-    <div className="flex-1 bg-white rounded-lg shadow p-8 hover:underline">
-      <div>
-        <svg
-          className="h-6 w-6 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          {/* You can add a path here */}
-        </svg>
-      </div>
-      <h3 className="text-red-900 mt-5 text-base font-medium tracking-tight">
-        Create New Resume/CV
-      </h3>
-      <p className="text-gray-500 mt-2">
-        Thjjdjjfbhffhbfhfbfhfbh
-      </p>
-    </div>
+      <div className="flex flex-col md:flex-row gap-20 max-w-5xl mx-auto">
+        {/* First Card */}
+        <div className="flex-1 bg-white rounded-lg shadow p-8 hover:underline">
+          <div>
+            <svg
+              className="h-6 w-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              {/* You can add a path here */}
+            </svg>
+          </div>
+          <h3 className="text-red-900 mt-5 text-base font-medium tracking-tight">
+            Create New Resume/CV
+          </h3>
+          <p className="text-gray-500 mt-2">
+            Thjjdjjfbhffhbfhfbfhfbh
+          </p>
+        </div>
 
-    {/* Second Card */}
-   <div className="flex-1 bg-white rounded-lg shadow p-8">
-      <div>
-          <svg
-            className="h-6 w-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            {/* You can add a path here */}
-          </svg>
-        </div>
-        <h3 className="text-green-900 dark:text-black mt-5 text-base font-medium tracking-tight">
-          Improve Your Resume/CV
-        </h3>
-        <p className="text-gray-500 dark:text-gray-400 mt-2">
-          Thjjdjjfbhffhbfhfbfhfbh
-        </p>
-        </div>
+        {/* Second Card */}
+      <div className="flex-1 bg-white rounded-lg shadow p-8">
+          <div>
+              <svg
+                className="h-6 w-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {/* You can add a path here */}
+              </svg>
+          </div>
+            <h3 className="text-green-900 dark:text-black mt-5 text-base font-medium tracking-tight">
+              Improve Your Resume/CV
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400 mt-2">
+              Thjjdjjfbhffhbfhfbfhfbh
+            </p>
+      </div>
   </div>
 
 
       <h1 className="text-3xl font-bold text-center mt-4">Choose a Resume Template</h1>
       <ResumeTemp onSelect={setSelectedtemplate} />
       <TemplatePreview selectedTemplate={selectedTemplate} />
-    </div>
-    
-      {/*Adding Home page info*/}
-      <Router>
-        <div className="min-h-screen bg-gray-100">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/create" element={<CreateResume />} />
-            <Route path="/improve" element={<ImproveResume />} />
-          </Routes>
-        </div>
-      </Router>
+  
+      <div className="min-h-screen bg-gray-100">
+        <nav className="flex gap-4 p-4 bg-white shadow">
+          <button onClick={() => setCurrentPage("home")} className="text-blue-500 hover:underline">Home</button>
+          <button onClick={() => setCurrentPage("create")} className="text-blue-500 hover:underline">Create Resume</button>
+          <button onClick={() => setCurrentPage("improve")} className="text-blue-500 hover:underline">Improve Resume</button>
+        </nav>
 
+        <main className="p-8">{renderPage()}</main>
+      </div>
+  </div>    
   );
 }
 
