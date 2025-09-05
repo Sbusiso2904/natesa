@@ -2,6 +2,12 @@ import ResumeTemp from "./ResumeTemp";
 import React, {useState} from "react";
 import TemplatePreview from "./TemplatePreview";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import CreateResume from "./pages/CreateResume";
+import ImproveResume from "./pages/ImproveResume";
+
 function App() {
   const [selectedTemplate, setSelectedtemplate] = useState(null);
 
@@ -78,11 +84,22 @@ function App() {
   </div>
 
 
-      <h1 className="text-3xl font-bold text-center mt-4">choose a Resume Template</h1>
+      <h1 className="text-3xl font-bold text-center mt-4">Choose a Resume Template</h1>
       <ResumeTemp onSelect={setSelectedtemplate} />
       <TemplatePreview selectedTemplate={selectedTemplate} />
     </div>
     
+      {/*Adding Home page info*/}
+      <Router>
+        <div className="min-h-screen bg-gray-100">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<CreateResume />} />
+            <Route path="/improve" element={<ImproveResume />} />
+          </Routes>
+        </div>
+      </Router>
+
   );
 }
 
