@@ -9,18 +9,19 @@ import ImproveResume from "./pages/ImproveResume";
 
 function App() {
   const [selectedTemplate, setSelectedtemplate] = useState(null);
-  const [currentPage, setCurrentPage] = useState("home");
 
-    const renderPage = () => {
-    switch (currentPage) {
-      case "create":
-        return <CreateResume />;
-      case "improve":
-        return <ImproveResume />;
-      default:
-        return <Home />;
-    }
-  };
+  // const [currentPage, setCurrentPage] = useState("home");
+
+  //   const renderPage = () => {
+  //   switch (currentPage) {
+  //     case "create":
+  //       return <CreateResume />;
+  //     case "improve":
+  //       return <ImproveResume />;
+  //     default:
+  //       return <Home />;
+  //   }
+  // };
 
 
   return (
@@ -98,7 +99,7 @@ function App() {
       </div>
   </div>
 
-
+{/* 
       <h1 className="text-3xl font-bold text-center mt-4">Choose a Resume Template</h1>
       <ResumeTemp onSelect={setSelectedtemplate} />
       <TemplatePreview selectedTemplate={selectedTemplate} />
@@ -111,7 +112,7 @@ function App() {
         </nav>
 
         <main className="p-8">{renderPage()}</main>
-      </div>
+      </div> */}
   </div>    
   );
 }
