@@ -1,27 +1,31 @@
 import ResumeTemp from "./ResumeTemp";
 import React, {useState} from "react";
 import TemplatePreview from "./TemplatePreview";
-
-
 import Home from "./pages/Home";
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
 
 function App() {
   const [selectedTemplate, setSelectedtemplate] = useState(null);
+  const [currentPage, setCurrentPage] = useState("home");
 
-  // const [currentPage, setCurrentPage] = useState("home");
+    const renderPage = () => {
+    switch (currentPage) {
+      case "create":
+        return <CreateResume />;
+      case "improve":
+        return <ImproveResume />;
+      case "home":
+        return <Home />;  
+      default:
+        return <h1>404 - Page Not Found</h1>;
+    }
+  };
 
-  //   const renderPage = () => {
-  //   switch (currentPage) {
-  //     case "create":
-  //       return <CreateResume />;
-  //     case "improve":
-  //       return <ImproveResume />;
-  //     default:
-  //       return <Home />;
-  //   }
-  // };
+  const handleNavclick = (page, e) => {
+    e.preventDefault();
+    setCurrentPage(page);
+  };
 
 
   return (
@@ -31,9 +35,15 @@ function App() {
       </h1>
 
       <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
-        <a href="#Home" className="hover:underline">
+        <a
+          href="#Home"
+          className="hover:underline"
+          onClick={() => handleNavclick("home", e)}>
           Home
         </a>
+
+        {renderPage()}
+
         <a href="#Signin" className="hover:underline">
           Sign in
         </a>
@@ -71,6 +81,7 @@ function App() {
           </div>
           <h3 className="text-red-900 mt-5 text-base font-medium tracking-tight">
             Create New Resume/CV
+            onClick={(e) => handleNavclick("create, e")}
           </h3>
           <p className="text-gray-500 mt-2">
             Thjjdjjfbhffhbfhfbfhfbh
@@ -92,6 +103,7 @@ function App() {
           </div>
             <h3 className="text-green-900 dark:text-black mt-5 text-base font-medium tracking-tight">
               Improve Your Resume/CV
+              onClick{(e) => handleNavclick("improve", e)}
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Thjjdjjfbhffhbfhfbfhfbh
