@@ -20,12 +20,12 @@ function App() {
         <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
           <Link to="/" className="hover:underline">Home</Link>
 
-          <a href="#signin" className="hover:underline">Sign in</a>
-          <a href="#login" className="hover:underline">Login</a>
-          <a href="#builder" className="hover:underline">Builder</a>
-          <a href="#upload" className="hover:underline">Upload</a>
-          <a href="#contacts" className="hover:underline">Contacts</a>
-          <a href="#about" className="hover:underline">About</a>
+          <Link to="#signin" className="hover:underline">Sign in</Link>
+          <Link to="#login" className="hover:underline">Login</Link>
+          <Link tp="#builder" className="hover:underline">Builder</Link>
+          <Link to="#upload" className="hover:underline">Upload</Link>
+          <Link to="#contacts" className="hover:underline">Contacts</Link>
+          <Link to="#about" className="hover:underline">About</Link>
         </nav>
 
         {/* Action Cards (appear only on Home page) */}
