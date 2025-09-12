@@ -1,10 +1,5 @@
-// import React from "react";
+const CreateResume = () => {
+  return <h2 className="text-center text-xl">Create your resume here.</h2>;
+};
 
-// export default function ImproveResume() {
-//   return (
-//     <div>
-//       <h2 className="text-2xl font-semibold mb-2">Improve Your Resume</h2>
-//       <p className="text-gray-600">Upload and enhance your existing resume.</p>
-//     </div>
-//   );
-// }
+export default CreateResume;

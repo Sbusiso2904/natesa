@@ -1,10 +1,5 @@
-// import React from "react";
+const ImproveResume = () => {
+  return <h2 className="text-center text-xl">Upload and improve your resume.</h2>;
+};
 
-// export default function ImproveResume() {
-//   return (
-//     <div className="text-center py-20">
-//       <h2 className="text-2xl font-semibold">Improve Your Existing Resume</h2>
-//       <p className="mt-4 text-gray-600">Upload or edit existing resume here.</p>
-//     </div>
-//   );
-// }
+export default ImproveResume;
