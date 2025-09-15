@@ -1,11 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
+
+
 
 function App() {
   return (
