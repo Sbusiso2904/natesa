@@ -29,12 +29,12 @@ function App() {
         <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
           <Link to="/" className="hover:underline">Home</Link>
 
-          <Link to="#signin" className="hover:underline">Sign in</Link>
-          <Link to="#login" className="hover:underline">Login</Link>
-          <Link tp="#builder" className="hover:underline">Builder</Link>
-          <Link to="#upload" className="hover:underline">Upload</Link>
-          <Link to="#contacts" className="hover:underline">Contacts</Link>
-          <Link to="#about" className="hover:underline">About</Link>
+          <Link to="/signin" className="hover:underline">Sign in</Link>
+          <Link to="/login" className="hover:underline">Login</Link>
+          <Link to="/builder" className="hover:underline">Builder</Link>
+          <Link to="/upload" className="hover:underline">Upload</Link>
+          <Link to="/contacts" className="hover:underline">Contacts</Link>
+          <Link to="/about" className="hover:underline">About</Link>
         </nav>
 
         {/* Action Cards (appear only on Home page) */}
@@ -80,6 +80,15 @@ function App() {
           {/* Route Pages */}
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
+
+          <Route path="/create" element={<CreateResume />} />
+          <Route path="/improve" element={<ImproveResume />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/builder" element={<Builder />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/about" element={<About />} />
 
           {/* 404 Page */}
           <Route path="*" element={<h1 className="text-center text-red-600 text-2xl">404 - Page Not Found</h1>} />
