@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signin from "./pages/Signin";
+import Upload from "./pages/Upload";
+import Contacts from "./pages/Contacts";
+import Builder from "./pages/Builder";
+import About from "./pages/About";
+
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
 
