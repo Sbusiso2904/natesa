@@ -5,7 +5,7 @@ import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Signin from "./pages/Signin";
+import Register from "./pages/Signin";
 import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
@@ -17,6 +17,7 @@ import ImproveResume from "./pages/ImproveResume";
 
 
 function App() {
+  
   return (
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">
@@ -29,7 +30,7 @@ function App() {
         <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
           <Link to="/" className="hover:underline">Home</Link>
 
-          <Link to="/signin" className="hover:underline">Sign in</Link>
+          <Link to="/register" className="hover:underline">Register</Link>
           <Link to="/login" className="hover:underline">Login</Link>
           <Link to="/builder" className="hover:underline">Builder</Link>
           <Link to="/upload" className="hover:underline">Upload</Link>
@@ -83,7 +84,7 @@ function App() {
 
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/builder" element={<Builder />} />
           <Route path="/upload" element={<Upload />} />
