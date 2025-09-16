@@ -10,7 +10,7 @@ import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
 import About from "./pages/About";
-import AuthForm from ".pages/AuthForm";
+import AuthForm from "./pages/AuthForm";
 
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
