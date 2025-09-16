@@ -33,7 +33,7 @@ function App() {
           <Link to="/" className="hover:underline">Home</Link>
 
           <Link to="/authform" className="hover:underline">Login </Link>
-          {/* <Link to="/login" className="hover:underline">Login</Link> */}
+      
           <Link to="/builder" className="hover:underline">Builder</Link>
           <Link to="/upload" className="hover:underline">Upload</Link>
           <Link to="/contacts" className="hover:underline">Contacts</Link>
@@ -85,7 +85,7 @@ function App() {
           <Route path="/improve" element={<ImproveResume />} />
 
           <Route path="/authform" element={<AuthForm />} />
-          {/* <Route path="/login" element={<Login />} />  */}
+        
           <Route path="/builder" element={<Builder />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contacts" element={<Contacts />} />
