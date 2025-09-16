@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
 import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
 import About from "./pages/About";
+import AuthForm from "./AuthForm";
 
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
@@ -30,8 +31,8 @@ function App() {
         <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
           <Link to="/" className="hover:underline">Home</Link>
 
-          <Link to="/register" className="hover:underline">Register</Link>
-          <Link to="/login" className="hover:underline">Login</Link>
+          <Link to="/authform" className="hover:underline">AuthForm</Link>
+          {/* <Link to="/login" className="hover:underline">Login</Link> */}
           <Link to="/builder" className="hover:underline">Builder</Link>
           <Link to="/upload" className="hover:underline">Upload</Link>
           <Link to="/contacts" className="hover:underline">Contacts</Link>
@@ -84,8 +85,8 @@ function App() {
 
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} /> */}
           <Route path="/builder" element={<Builder />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contacts" element={<Contacts />} />
