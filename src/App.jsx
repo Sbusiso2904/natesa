@@ -5,7 +5,7 @@ import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Register from "./pages/Signin";
+import Register from "./pages/Register";
 import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
@@ -17,7 +17,7 @@ import ImproveResume from "./pages/ImproveResume";
 
 
 function App() {
-  
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">

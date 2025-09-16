@@ -18,11 +18,9 @@ function Register(){
       }else{
         console.log("Email or Password is not matching with our record");
       }
-
     }else{
       console.log ("Email or Password is not matching with our record");
     }
-
   };
   
   return(
