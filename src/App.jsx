@@ -20,6 +20,7 @@ import ImproveResume from "./pages/ImproveResume";
 function App() {
 
   return (
+    
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">
         {/* Header */}
@@ -85,8 +86,8 @@ function App() {
 
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
-          {/* <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} /> */}
+          <Route path="/authform" element={<AuthForm />} />
+          {/* <Route path="/login" element={<Login />} />  */}
           <Route path="/builder" element={<Builder />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contacts" element={<Contacts />} />
@@ -97,6 +98,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    
   );
 }
 
