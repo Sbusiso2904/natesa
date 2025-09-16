@@ -10,7 +10,7 @@ import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
 import About from "./pages/About";
-import AuthForm from "./AuthForm";
+import AuthForm from ".pages/AuthForm";
 
 import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
@@ -32,7 +32,7 @@ function App() {
         <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
           <Link to="/" className="hover:underline">Home</Link>
 
-          <Link to="/authform" className="hover:underline">AuthForm</Link>
+          <Link to="/authform" className="hover:underline">Login / Sign in</Link>
           {/* <Link to="/login" className="hover:underline">Login</Link> */}
           <Link to="/builder" className="hover:underline">Builder</Link>
           <Link to="/upload" className="hover:underline">Upload</Link>
@@ -84,8 +84,6 @@ function App() {
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
 
-          <Route path="/create" element={<CreateResume />} />
-          <Route path="/improve" element={<ImproveResume />} />
           <Route path="/authform" element={<AuthForm />} />
           {/* <Route path="/login" element={<Login />} />  */}
           <Route path="/builder" element={<Builder />} />
