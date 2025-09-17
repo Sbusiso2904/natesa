@@ -24,7 +24,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">
         {/* Header */}
-        <h1 className="text-4xl font-bold text-sideleft mb-8 text-gray-800">
+        <h1 className="text-4xl font-bold text-sideleft mb-8 text-gray-800 flex justify-center">
           Resume Builder SA
         </h1>
 
