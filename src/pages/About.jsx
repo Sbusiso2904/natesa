@@ -1,5 +1,13 @@
-const About = () => {
-  return <h2 className="text-center text-xl">Welcome to Resume Builder SA!</h2>;
+import React from "react"; 
+
+function About(){
+  const About = () => {
+  return 
+    <>
+      <h1>About</h1>
+      <p>Hello there.<br />?How do you do?</p>
+    </>
+  }  
 };
 
 export default About;
