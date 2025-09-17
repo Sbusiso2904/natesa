@@ -23,21 +23,34 @@ function App() {
     
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">
-        {/* Header */}
-        <h1 className="text-4xl font-bold text-sideleft mb-8 text-gray-800 flex justify-center">
-          Resume Builder SA
-        </h1>
+    
+          {/* Fixed Header + Navigation Bar */}
+          <nav className="fixed top-0 left-0 w-full bg-gray-100 shadow-md z-50">
+            <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
+              
+              {/* Logo or Header */}
+              <h1 className="text-2xl font-bold text-gray-800">
+                Resume Builder SA
+              </h1>
 
-        {/* Navigation Bar */}
-        <nav className="flex justify-center space-x-8 mb-12 text-lg text-blue-600">
+              {/* Navigation Links */}
+              <div className="flex space-x-6 text-lg text-blue-600">
+                <Link to="/" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Home</Link>
+                <Link to="/authform" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Login</Link>
+                <Link to="/builder" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Builder</Link>
+                <Link to="/upload" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Upload</Link>
+                <Link to="/contacts" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Contacts</Link>
+                <Link to="/about" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">About</Link>
+              </div>
+            </div>
+          </nav>
 
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/authform" className="hover:underline">Login </Link>
-          <Link to="/builder" className="hover:underline">Builder</Link>
-          <Link to="/upload" className="hover:underline">Upload</Link>
-          <Link to="/contacts" className="hover:underline">Contacts</Link>
-          <Link to="/about" className="hover:underline">About</Link>
-        </nav>
+          {/* Add spacing below the fixed nav */}
+          <div className="pt-24">
+            {/* Your page content here */}
+          </div>
+
+
 
         {/* Action Cards (appear only on Home page) */}
         <Routes>
