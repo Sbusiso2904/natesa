@@ -5,7 +5,7 @@ import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
 // import Login from "./pages/Login";
-// import Register from "./pages/Register";
+
 import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
@@ -50,8 +50,6 @@ function App() {
             {/* Your page content here */}
           </div>
 
-
-
         {/* Action Cards (appear only on Home page) */}
         <Routes>
           <Route
@@ -95,9 +93,7 @@ function App() {
           {/* Route Pages */}
           <Route path="/create" element={<CreateResume />} />
           <Route path="/improve" element={<ImproveResume />} />
-
           <Route path="/authform" element={<AuthForm />} />
-        
           <Route path="/builder" element={<Builder />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contacts" element={<Contacts />} />
