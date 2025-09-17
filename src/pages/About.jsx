@@ -1,13 +1,16 @@
-import React from "react"; 
+import React from "react";
 
-function About(){
-  const About = () => {
-  return 
-    <>
-      <h1>About</h1>
-      <p>Hello there.<br />?How do you do?</p>
-    </>
-  }  
-};
+function About() {
+  return (
+    <div className="max-w-2xl mx-auto p-6 ">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4">About</h1>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        Hello there.<br />
+        How do you do?
+      </p>
+    </div>
+  );
+}
 
 export default About;
+
