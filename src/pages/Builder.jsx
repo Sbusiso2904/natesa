@@ -21,6 +21,15 @@ function Sidebar({ isOpen, toggleSidebar }) {
           <li>
             <Link to="/" className="text-white hover:text-gray-300">Export & Share</Link>
           </li>
+          <li>
+            <link to="/" className="text-white hover:text-gray-300">Skill suggestion</link>
+          </li>
+          <li>
+            <Link to="/" className="text-white hover:text-gray-300">Job Description</Link>
+          </li>
+          <li>
+            <Link to="/" className="text-white hover:text-gray-300">Ai Writing Assistant</Link>
+          </li>
         </ul>
       </nav>
     </div>
