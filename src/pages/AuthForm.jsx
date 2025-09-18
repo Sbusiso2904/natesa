@@ -17,15 +17,15 @@ function AuthForm() {
       // LOGIN logic
       const userData = JSON.parse(localStorage.getItem(data.email));
       if (userData && userData.password === data.password) {
-        console.log(`✅ Welcome back, ${userData.name}`);
+        console.log(` Welcome back, ${userData.name}`);
       } else {
-        console.log("❌ Email or Password is incorrect.");
+        console.log(" Email or Password is incorrect.");
       }
     } else {
       // SIGN UP logic
       const existingUser = localStorage.getItem(data.email);
       if (existingUser) {
-        console.log("❌ User already exists.");
+        console.log(" User already exists.");
         return;
       }
 
@@ -36,7 +36,7 @@ function AuthForm() {
       };
 
       localStorage.setItem(data.email, JSON.stringify(user));
-      console.log("✅ User registered successfully.");
+      console.log(" User registered successfully.");
       setIsLogin(true); // Switch to login after sign up
     }
 
