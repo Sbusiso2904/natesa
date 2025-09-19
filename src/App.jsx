@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import ResumeTemp from "./ResumeTemp";
 import TemplatePreview from "./TemplatePreview";
 import Home from "./pages/Home";
-// import Login from "./pages/Login";
-
 import Upload from "./pages/Upload";
 import Contacts from "./pages/Contacts";
 import Builder from "./pages/Builder";
