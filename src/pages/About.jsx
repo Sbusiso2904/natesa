@@ -7,6 +7,7 @@ function About() {
       <p className="text-gray-700 text-lg leading-relaxed flex justify-center">
         Hello there.<br />
         How do you do?
+
       </p>
     </div>
   );
