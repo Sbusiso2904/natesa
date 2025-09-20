@@ -13,9 +13,6 @@ import CreateResume from "./pages/CreateResume";
 import ImproveResume from "./pages/ImproveResume";
 
 
-
-
-
 function App() {
 
   return (
