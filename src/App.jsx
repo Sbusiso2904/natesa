@@ -17,7 +17,6 @@ import ImproveResume from "./pages/ImproveResume";
 function App() {
 
   return (
-    
     <Router>
       <div className="min-h-screen bg-gray-200 p-6">
     
@@ -104,5 +103,4 @@ function App() {
     
   );
 }
-
 export default App;
