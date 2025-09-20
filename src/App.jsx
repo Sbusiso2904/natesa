@@ -14,6 +14,8 @@ import ImproveResume from "./pages/ImproveResume";
 
 
 
+
+
 function App() {
 
   return (
@@ -39,7 +41,7 @@ function App() {
                 <Link to="/about" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">About</Link>
               </div>
             </div>
-          </nav>
+          </nav> hhhhhhhh
 
           {/* Add spacing below the fixed nav */}
           <div className="pt-24">
