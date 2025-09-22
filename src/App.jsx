@@ -7,6 +7,7 @@ import About from "./pages/About";
 import AuthForm from "./pages/AuthForm";
 
 
+
 function App() {
 
   return (
@@ -31,7 +32,7 @@ function App() {
               </div>
             </div>
           </nav> 
-          
+
 
           {/* Add spacing below the fixed nav */}
           <div className="pt-24">
