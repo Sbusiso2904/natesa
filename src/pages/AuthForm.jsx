@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 
 
 function AuthForm() {
+  const [message, setMessage] = useState("")
+  const [messageType, setMessageType] = useState("success");;
+
   const [isLogin, setIsLogin] = useState(true); // Toggle between login/register
   const {
     register,
@@ -17,15 +20,19 @@ function AuthForm() {
       // LOGIN logic
       const userData = JSON.parse(localStorage.getItem(data.email));
       if (userData && userData.password === data.password) {
-        console.log(` Welcome back, ${userData.name}`);
+          setMessageType("success");
+          setMessage(`Welcome back, ${userData.name}!`);
       } else {
-        console.log(" Email or Password is incorrect.");
+          setMessageType("error");
+          setMessage("Email or password is incorrect.");
       }
     } else {
+
       // SIGN UP logic
       const existingUser = localStorage.getItem(data.email);
       if (existingUser) {
-        console.log(" User already exists.");
+        setMessageType("error");
+        setMessage("User already exists");
         return;
       }
 
@@ -33,10 +40,12 @@ function AuthForm() {
         name: data.name,
         email: data.email,
         password: data.password,
+        branch: data.branch,
       };
 
-      localStorage.setItem(data.email, JSON.stringify(user));
-      console.log(" User registered successfully.");
+      localStorage.setItem("loggedInUser", data.email);
+      setMessageType("success");
+      setMessage("Registration successful! Please log in.");
       setIsLogin(true); // Switch to login after sign up
     }
 
@@ -44,11 +53,21 @@ function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300 px-4">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
+      {message && (
+        <div
+          className={`mb-4 text-center font-semibold ${
+            messageType === "success" ? "text-green-600" : "text-red-600"
+         }`}
+        >
+          {message}
+        </div>
+      )}
+
 
         <form onSubmit={handleSubmit(onSubmit)}>
           {!isLogin && (
@@ -93,6 +112,18 @@ function AuthForm() {
                 *Password* is mandatory
               </p>
             )}
+            <input
+              type="branch"
+              {...register("branch", { required: true })}
+              placeholder="branch"
+              className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">
+                *Branch* is mandatory
+              </p>  
+            )}
+            
           </div>
 
           <div className="flex items-center justify-between">
@@ -116,6 +147,41 @@ function AuthForm() {
             </button>
           </div>
         </form>
+        {/* //gfffffff */}
+
+        {!isLogin && (
+  <>
+        {/* Name Field */}
+    <div className="mb-4">
+      <input
+        type="text"
+        {...register("name", { required: true })}
+        placeholder="Full Name"
+        className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+      />
+      {errors.name && (
+        <p className="text-red-500 text-sm mt-1">*Name* is mandatory</p>
+      )}
+    </div>
+
+    {/* Category Select */}
+    <div className="mb-4">
+      <select
+        {...register("category", { required: true })}
+        className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+      >
+        <option value="">Select Category</option>
+        <option value="admin">Admin</option>
+        <option value="jobseeker">Job Seeker</option>
+        <option value="employer">Employer</option>
+      </select>
+      {errors.category && (
+        <p className="text-red-500 text-sm mt-1">*Category* is mandatory</p>
+      )}
+    </div>
+  </>
+)}
+
       </div>
     </div>
   );

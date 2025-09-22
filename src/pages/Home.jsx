@@ -1,5 +1,5 @@
 const Home = () => {
-  return <h2 className="text-center text-xl">Welcome to Resume Builder SA!</h2>;
+  return <h2 className="text-center text-xl">Welcome to natesa page!</h2>;
 };
 
 export default Home;
