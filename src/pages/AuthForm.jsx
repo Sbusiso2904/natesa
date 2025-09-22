@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-
-
 function AuthForm() {
-  const [message, setMessage] = useState("")
-  const [messageType, setMessageType] = useState("success");;
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("success");
+  const [isLogin, setIsLogin] = useState(true);
 
-  const [isLogin, setIsLogin] = useState(true); // Toggle between login/register
   const {
     register,
     handleSubmit,
@@ -20,14 +18,14 @@ function AuthForm() {
       // LOGIN logic
       const userData = JSON.parse(localStorage.getItem(data.email));
       if (userData && userData.password === data.password) {
-          setMessageType("success");
-          setMessage(`Welcome back, ${userData.name}!`);
+        setMessageType("success");
+        setMessage(`Welcome back, ${userData.name}!`);
+        localStorage.setItem("loggedInUser", data.email);
       } else {
-          setMessageType("error");
-          setMessage("Email or password is incorrect.");
+        setMessageType("error");
+        setMessage("Email or password is incorrect.");
       }
     } else {
-
       // SIGN UP logic
       const existingUser = localStorage.getItem(data.email);
       if (existingUser) {
@@ -40,13 +38,14 @@ function AuthForm() {
         name: data.name,
         email: data.email,
         password: data.password,
+        category: data.category,
         branch: data.branch,
       };
 
-      localStorage.setItem("loggedInUser", data.email);
+      localStorage.setItem(data.email, JSON.stringify(user));
       setMessageType("success");
       setMessage("Registration successful! Please log in.");
-      setIsLogin(true); // Switch to login after sign up
+      setIsLogin(true);
     }
 
     reset(); // Clear the form
@@ -58,34 +57,58 @@ function AuthForm() {
         <h2 className="text-2xl font-bold mb-6 text-center">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
-      {message && (
-        <div
-          className={`mb-4 text-center font-semibold ${
-            messageType === "success" ? "text-green-600" : "text-red-600"
-         }`}
-        >
-          {message}
-        </div>
-      )}
 
+        {/* Feedback message */}
+        {message && (
+          <div
+            className={`mb-4 text-center font-semibold ${
+              messageType === "success" ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {message}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit(onSubmit)}>
+          {/* SIGN-UP FIELDS */}
           {!isLogin && (
-            <div className="mb-4">
-              <input
-                type="text"
-                {...register("name", { required: true })}
-                placeholder="Full Name"
-                className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">
-                  *Name* is mandatory
-                </p>
-              )}
-            </div>
+            <>
+              {/* Full Name */}
+              <div className="mb-4">
+                <input
+                  type="text"
+                  {...register("name", { required: true })}
+                  placeholder="Full Name"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">
+                    *Name* is mandatory
+                  </p>
+                )}
+              </div>
+
+              {/* Category */}
+              <div className="mb-4">
+                <select
+                  {...register("category", { required: true })}
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                >
+                  <option value="">Select Category</option>
+                  <option value="admin">NEC</option>
+                  <option value="jobseeker">BEC</option>
+                  <option value="employer">GENERAL MEMBER</option>
+                </select>
+                {errors.category && (
+                  <p className="text-red-500 text-sm mt-1">
+                    *Category* is mandatory
+                  </p>
+                )}
+              </div>
+            </>
           )}
 
+          {/* Email */}
           <div className="mb-4">
             <input
               type="email"
@@ -100,7 +123,8 @@ function AuthForm() {
             )}
           </div>
 
-          <div className="mb-6">
+          {/* Password */}
+          <div className="mb-4">
             <input
               type="password"
               {...register("password", { required: true })}
@@ -112,20 +136,26 @@ function AuthForm() {
                 *Password* is mandatory
               </p>
             )}
-            <input
-              type="branch"
-              {...register("branch", { required: true })}
-              placeholder="branch"
-              className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm mt-1">
-                *Branch* is mandatory
-              </p>  
-            )}
-            
           </div>
 
+          {/* Branch (Sign-Up Only) */}
+          {!isLogin && (
+            <div className="mb-6">
+              <input
+                type="text"
+                {...register("branch", { required: true })}
+                placeholder="Branch"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+              />
+              {errors.branch && (
+                <p className="text-red-500 text-sm mt-1">
+                  *Branch* is mandatory
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Buttons */}
           <div className="flex items-center justify-between">
             <button
               type="submit"
@@ -137,6 +167,7 @@ function AuthForm() {
               type="button"
               onClick={() => {
                 setIsLogin(!isLogin);
+                setMessage("");
                 reset();
               }}
               className="text-sm text-blue-600 hover:underline focus:outline-none"
@@ -147,41 +178,6 @@ function AuthForm() {
             </button>
           </div>
         </form>
-        {/* //gfffffff */}
-
-        {!isLogin && (
-  <>
-        {/* Name Field */}
-    <div className="mb-4">
-      <input
-        type="text"
-        {...register("name", { required: true })}
-        placeholder="Full Name"
-        className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
-      />
-      {errors.name && (
-        <p className="text-red-500 text-sm mt-1">*Name* is mandatory</p>
-      )}
-    </div>
-
-    {/* Category Select */}
-    <div className="mb-4">
-      <select
-        {...register("category", { required: true })}
-        className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
-      >
-        <option value="">Select Category</option>
-        <option value="admin">Admin</option>
-        <option value="jobseeker">Job Seeker</option>
-        <option value="employer">Employer</option>
-      </select>
-      {errors.category && (
-        <p className="text-red-500 text-sm mt-1">*Category* is mandatory</p>
-      )}
-    </div>
-  </>
-)}
-
       </div>
     </div>
   );
