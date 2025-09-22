@@ -31,6 +31,7 @@ function App() {
               </div>
             </div>
           </nav> 
+          
 
           {/* Add spacing below the fixed nav */}
           <div className="pt-24">
