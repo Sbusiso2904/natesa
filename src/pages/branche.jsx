@@ -1,5 +1,6 @@
+export default BranchePage;
 
-import React from "react";
+import React, { useState } from "react";
 
 const mainBranches = [
   "Gauteng",
@@ -29,7 +30,7 @@ const branches = [
     campuses: [
       " Qwaqwa Campus",
       " University of the Free State",
-      "Majuba College",
+      "Central University of Technology",
     ],
   },
   {
@@ -56,8 +57,9 @@ const branches = [
       "Indumiso Campus",
       "Durban Campus",
       "Unizulu Campus",
-      "Majuba Campus",
-      "Newcastle Campus",
+      "Majuba College",
+      "umfolozi  College",
+      "coastal  College",
     ],
   },
   {
@@ -65,6 +67,9 @@ const branches = [
     description: "Mpumalanga, meaning 'the place where the sun rises', is famous for its scenic beauty, wildlife, and proximity to the Kruger National Park.",
     campuses: [
       "University of Mpumalanga",
+      "mbombela  College",
+      "elangeni  College",
+
     ],
   },
   {
@@ -85,48 +90,66 @@ const branches = [
 ];
 
 function BranchePage() {
+  const [openBranch, setOpenBranch] = useState(null);
+
+  const handleBranchClick = (idx) => {
+    setOpenBranch(openBranch === idx ? null : idx);
+  };
+
   return (
     <div>
       {/* Main branches on top */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 32 }}>
-        {mainBranches.map((branch, idx) => (
+        {branches.map((branch, idx) => (
           <div
             key={idx}
             style={{
               padding: "10px 20px",
-              border: "1px solid #1976d2",
+              border: openBranch === idx ? "2px solid #1976d2" : "1px solid #1976d2",
               borderRadius: 6,
-              background: "#e3f2fd",
+              background: openBranch === idx ? "#1976d2" : "#f5faff",
               fontWeight: "bold",
               fontSize: 16,
               minWidth: 120,
               textAlign: "center",
+              cursor: "pointer",
+              color: openBranch === idx ? "#fff" : "#1976d2",
+              boxShadow: openBranch === idx ? "0 4px 16px rgba(25, 118, 210, 0.15)" : "none",
+              transition: "all 0.2s",
             }}
+            onClick={() => handleBranchClick(idx)}
           >
-            {branch}
+            {branch.name}
           </div>
         ))}
       </div>
 
-      {/* Existing branches and campuses */}
-      <div style={{ display: "flex", justifyContent: "space-around", padding: 40 }}>
-        {branches.map((branch, idx) => (
-          <div key={idx} style={{ border: "1px solid #ccc", borderRadius: 8, padding: 20, width: 250 }}>
-            <h2>{branch.name}</h2>
-            <p>{branch.description}</p>
-            {branch.campuses && (
-              <ul>
-                {branch.campuses.map((campus, cidx) => (
-                  <li key={cidx}>{campus}</li>
+      {/* Show only the selected branch and its campuses */}
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", padding: 40 }}>
+        {openBranch !== null && (
+          <div style={{
+            border: "2px solid #1976d2",
+            borderRadius: 8,
+            padding: 24,
+            width: 320,
+            margin: 10,
+            background: "#f5faff",
+            boxShadow: "0 4px 24px rgba(25, 118, 210, 0.10)"
+          }}>
+            <h2 style={{ color: "#1976d2", textAlign: "center", marginBottom: 12 }}>{branches[openBranch].name}</h2>
+            <p style={{ color: "#333", marginBottom: 16 }}>{branches[openBranch].description}</p>
+            {branches[openBranch].campuses && (
+              <ul style={{ paddingLeft: 18 }}>
+                {branches[openBranch].campuses.map((campus, cidx) => (
+                  <li key={cidx} style={{ color: "#1976d2", marginBottom: 6 }}>{campus}</li>
                 ))}
               </ul>
             )}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
 }
 
-export default BranchePage;
 
