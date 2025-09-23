@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import AuthForm from "./pages/AuthForm";
+import BranchePage from "./pages/branche";
+
 import StudentDash from "./pages/StudentDash";
 import MembersList from "./pages/MembersList";
 import BECDashboard from "./pages/BECDashboard";
@@ -17,19 +19,19 @@ import Admin from "./pages/Admin";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-200 p-6">
-        {/* Fixed Header + Navigation Bar */}
+      <div className="min-h-screen bg-gray-200">
+        {/* Fixed Header + Navigation Bar (only for public pages) */}
         <nav className="fixed top-0 left-0 w-full bg-gray-100 shadow-md z-50">
           <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
             <h1 className="text-2xl font-bold text-gray-800">natesa</h1>
 
+            {/* Navigation Links */}
             <div className="flex space-x-6 text-lg text-blue-600">
               <Link to="/" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Home</Link>
               <Link to="/authform" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Login</Link>
               <Link to="/contacts" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Contacts</Link>
               <Link to="/about" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">About</Link>
-              {/* <Link to="/events" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Events</Link>
-              <Link to="/announcement" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Announcement</Link> */}
+              <Link to="/branches" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Branches</Link>
             </div>
           </div>
         </nav>
@@ -37,7 +39,7 @@ function App() {
         {/* Add spacing below the fixed nav */}
         <div className="pt-24">
           <Routes>
-            {/* Home */}
+            {/* Home Page */}
             <Route
               path="/"
               element={
@@ -88,25 +90,21 @@ function App() {
               }
             />
 
-            {/* Other Pages */}
+            {/* Public Pages */}
             <Route path="/authform" element={<AuthForm />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/about" element={<About />} />
-            {/* <Route path="/studentdash" element={<StudentDash />} />
-            <Route path="/bec-dashboard" element={<BECDashboard />} /> */}
+            <Route path="/branches" element={<BranchePage />} />
             <Route path="/events" element={<Events />} />
             <Route path="/announcement" element={<Announcement />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            {/* <Route path="/admin" element={<Admin />} /> */}
 
+            {/* Dashboard with nested routes */}
             <Route path="/dashboard" element={<Dashboard />}>
+              <Route index element={<Navigate to="studentdash" replace />} />
               <Route path="admin" element={<Admin />} />
               <Route path="bec-dashboard" element={<BECDashboard />} />
               <Route path="studentdash" element={<StudentDash />} />
             </Route>
-
-
-
 
             {/* Protected Route */}
             <Route
@@ -118,9 +116,8 @@ function App() {
               }
             />
 
-            {/* Redirect unknown routes */}
-            <Route path="*" element={<Navigate to="/" />} />
-            <Route path="/" element={<AuthForm />} />
+            {/* 404 Page */}
+            <Route path="*" element={<h1 className="text-center text-red-600 text-2xl">404 - Page Not Found</h1>} />
           </Routes>
         </div>
       </div>
