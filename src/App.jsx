@@ -8,8 +8,8 @@ import AuthForm from "./pages/AuthForm";
 import StudentDash from "./pages/StudentDash";
 import MembersList from "./pages/MembersList";
 import BECDashboard from "./pages/BECDashboard";
-import ProtectedRoute from "./components/ProtectedRoute"; // fixed spelling
-import Events from "./Events";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Events from "./pages/Events";
 import Announcement from "./pages/Announcement";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
