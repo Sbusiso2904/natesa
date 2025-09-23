@@ -7,15 +7,15 @@ export default function RolesPage() {
   // === NEC State ===
   const [nec, setNec] = useState([
     "Chairperson - Mr. Thulebona Cele",
-    "Deputy Chairperson - ",
+    "Deputy Chairperson -Sabelo Mncube ",
     "Secretary General - Halalisani Zulu",
-    "Deputy Secretary General - ",
-    "Treasurer General - ",
-    "Organizer - ",
-    "Public Relations Officer - ",
-    "Project Officer - ",
-    "Additional Member 1 - ",
-    "Additional Member 2 - ",
+    "Deputy Secretary General - Nomasabatha Mkhize ",
+    "Treasurer General - Nokubonga Hadebe ",
+    "Organizer - Siyanda Ntombela ",
+    "Public Relations Officer - Nkosingiphile Khoza ",
+    "Project Officer - Sinethemba Skhakhane",
+    "Additional Member 1 -Lindokuhle Ntshangase ",
+    "Additional Member 2 -Khanyisani Makhoba ",
   ]);
   const [newNec, setNewNec] = useState("");
 
