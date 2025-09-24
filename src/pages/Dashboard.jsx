@@ -13,7 +13,7 @@ const Dashboard = () => {
             <Link to="admin"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Admin</Link>
             <Link to="bec-dashboard"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200"> BEC Dashboard</Link>
             <Link to="studentdash"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Student</Link>
-            <Link to="branches"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Branches</Link>
+            <Link to="branche"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Branche</Link>
             <Link to="events"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Events</Link>
             <Link to="announcement"className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Announcement</Link>
             

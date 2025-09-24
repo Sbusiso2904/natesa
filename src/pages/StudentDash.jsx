@@ -1,7 +1,7 @@
 import React from "react";
 
 const StudentDash = () => {
-  // Example student data (you can replace with dynamic data later)
+  // Example student data 
   const student = {
     firstName: "Sbu",
     lastName: "Mbatha",
@@ -9,12 +9,12 @@ const StudentDash = () => {
     faculty: "Engineering",
     academicAchievements: [
       "Dean's List 2024",
-      "Best Research Paper Award 2023"
+      
     ],
     organisations: [
       "Robotics Club",
-      "IEEE Student Chapter",
-      "Coding Society"
+      "geekclalcha",
+      "student command member"
     ]
   };
 

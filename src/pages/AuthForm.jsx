@@ -19,7 +19,7 @@ function AuthForm() {
         navigate("/studentdash");
         break;
       case "admin":
-        navigate("/members"); // or another admin route
+        navigate("/members");
         break;
       default:
         navigate("/");

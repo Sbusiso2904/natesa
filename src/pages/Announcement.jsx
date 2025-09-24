@@ -1,15 +1,3 @@
-// import React from "react";
-
-// export default function Announcement({ selectedTemplate}){
-//     if (!selectedTemplate) return <p className="text-center">...</p>;
-
-//     return (
-//         <div className="p-6">
-//             <h2 className="text-xl font-bold mb-4">Preview: {selectedTemplate.name}</h2>
-//             <img src={selectedTemplate.previewImage} alt="Preview" className="w-full border "/>
-//         </div>
-//     )   
-// }
 
 import React from "react";
 
