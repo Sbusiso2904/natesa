@@ -280,6 +280,8 @@ import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 
 function App() {
+  
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-200">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AuthForm() {
   const [message, setMessage] = useState("");
@@ -13,63 +14,80 @@ function AuthForm() {
   const redirectByRole = (role) => {
     switch (role) {
       case "moderator":
-        navigate("/bec-dashboard");
+        navigate("/dashboard/bec-dashboard");
         break;
       case "student":
-        navigate("/studentdash");
+        navigate("/dashboard/studentdash");
         break;
       case "admin":
-        navigate("/members");
+        navigate("/dashboard/admin");
         break;
       default:
-        navigate("/");
+        navigate("/dashboard");
     }
   };
 
-  const goToDashboard = () => {
-    navigate("/dashboard"); // redirects to /dashboard
+  // const onSubmit = async (data) => {
+  // try {
+  //   if (isLogin) {
+  //     // LOGIN
+  //     const response = await axios.post("http://localhost:8080/api/auth/login", data);
+  //     setMessageType("success");
+  //     setMessage("Welcome back!");
 
-  };
+  //     // redirect based on category
+  //     redirectByRole(response.data.category);
+  //   } else {
+  //     // SIGNUP
+  //     const response = await axios.post("http://localhost:8080/api/auth/signup", data);
+  //     setMessageType("success");
+  //     setMessage(response.data);
+  //     redirectByRole(data.category);
+  //   }
+  // } catch (error) {
+  //   setMessageType("error");
+  //   setMessage(error.response?.data || "Something went wrong");
+  // }
 
-  const onSubmit = (data) => {
-    if (isLogin) {
-      // LOGIN
-      // const userData = JSON.parse(localStorage.getItem(data.email));
-      // if (userData && userData.password === data.password) {
-      //   setMessageType("success");
-      //   setMessage(`Welcome back, ${userData.name}!`);
-        // localStorage.setItem("loggedInUser", data.email);
-        // redirectByRole(userData.category);
-        // navigate("/deshboard");
-        goToDashboard()
 
-      // } else {
-      //   setMessageType("error");
-      //   setMessage("Email or password is incorrect.");
-      // }
-    } else {
-      // SIGN UP
-      const existingUser = localStorage.getItem(data.email);
-      if (existingUser) {
-        setMessageType("error");
-        setMessage("User already exists");
-        return;
+
+  const onSubmit = async (data) => {
+    try {
+      if (isLogin) {
+
+        // LOGIN: Call Spring Boot API
+        const response = await axios.post("http://localhost:8080/api/auth/login", data);
+        const user = response.data;
+
+        setMessageType("success");
+        setMessage(`Welcome back, ${user.name}!`);
+        // Optionally store user token/session
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+        redirectByRole(user.category);
+
+      } else {
+
+        // SIGN UP: Call Spring Boot API
+        const response = await axios.post("http://localhost:8080/api/auth/signup", data);
+        const user = response.data;
+
+        setMessageType("success");
+        setMessage("Registration successful!");
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        console.log("we wants to enters")
+
+        redirectByRole(user.category);
       }
-
-      const newUser = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        category: data.category, 
-        branch: data.branch,
-      };
-
-      localStorage.setItem(data.email, JSON.stringify(newUser));
-      localStorage.setItem("loggedInUser", data.email);
-
-      setMessageType("success");
-      setMessage("Registration successful!");
-      redirectByRole(newUser.category);
+    } catch (error) {
+      setMessageType("error");
+      if (error.response && error.response.data && error.response.data.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("An error occurred. Please try again.");
+      }
+      console.error(error);
+      console.log("we wants to enters")
     }
 
     reset(); // Clear form
@@ -90,7 +108,6 @@ function AuthForm() {
         )}
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Sign Up fields */}
           {!isLogin && (
             <>
               <div className="mb-4">
@@ -115,10 +132,19 @@ function AuthForm() {
                 </select>
                 {errors.category && <p className="text-red-500 text-sm mt-1">*Category* is mandatory</p>}
               </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  {...register("branch", { required: true })}
+                  placeholder="Branch"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                />
+                {errors.branch && <p className="text-red-500 text-sm mt-1">*Branch* is mandatory</p>}
+              </div>
             </>
           )}
 
-          {/* Email */}
           <div className="mb-4">
             <input
               type="email"
@@ -129,7 +155,6 @@ function AuthForm() {
             {errors.email && <p className="text-red-500 text-sm mt-1">*Email* is mandatory</p>}
           </div>
 
-          {/* Password */}
           <div className="mb-4">
             <input
               type="password"
@@ -140,20 +165,6 @@ function AuthForm() {
             {errors.password && <p className="text-red-500 text-sm mt-1">*Password* is mandatory</p>}
           </div>
 
-          {/* Branch (Sign-Up only) */}
-          {!isLogin && (
-            <div className="mb-6">
-              <input
-                type="text"
-                {...register("branch", { required: true })}
-                placeholder="Branch"
-                className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
-              />
-              {errors.branch && <p className="text-red-500 text-sm mt-1">*Branch* is mandatory</p>}
-            </div>
-          )}
-
-          {/* Buttons */}
           <div className="flex items-center justify-between">
             <button
               type="submit"
