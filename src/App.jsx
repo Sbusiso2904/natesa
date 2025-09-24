@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import AuthForm from "./pages/AuthForm";
-import BranchePage from "./pages/branche";
+import BECroles from "./pages/BECroles";
+import branche from "./pages/branche";
 
 
 function App() {
@@ -29,7 +30,6 @@ function App() {
                 <Link to="/authform" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Login</Link>
                 <Link to="/contacts" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Contacts</Link>
                 <Link to="/about" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">About</Link>
-                <Link to="/branches" className="hover:bg-blue-100 px-3 py-2 rounded transition duration-200">Branches</Link>
               </div>
             </div>
           </nav> 
@@ -59,11 +59,9 @@ function App() {
 
           {/* Route Pages */}
 
-
           <Route path="/authform" element={<AuthForm />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about" element={<About />} />
-          <Route path="/branches" element={<BranchePage />} />
 
           {/* 404 Page */}
           <Route path="*" element={<h1 className="text-center text-red-600 text-2xl">404 - Page Not Found</h1>} />
