@@ -19,7 +19,7 @@ function AuthForm() {
         navigate("/studentdash");
         break;
       case "admin":
-        navigate("/members"); // or another admin route
+        navigate("/members");
         break;
       default:
         navigate("/");
@@ -27,26 +27,22 @@ function AuthForm() {
   };
 
   const goToDashboard = () => {
-    navigate("/dashboard"); // redirects to /dashboard
-
+    navigate("/dashboard");
   };
 
   const onSubmit = (data) => {
     if (isLogin) {
       // LOGIN
-      // const userData = JSON.parse(localStorage.getItem(data.email));
-      // if (userData && userData.password === data.password) {
-      //   setMessageType("success");
-      //   setMessage(`Welcome back, ${userData.name}!`);
-        // localStorage.setItem("loggedInUser", data.email);
-        // redirectByRole(userData.category);
-        // navigate("/deshboard");
-        goToDashboard()
-
-      // } else {
-      //   setMessageType("error");
-      //   setMessage("Email or password is incorrect.");
-      // }
+      const userData = JSON.parse(localStorage.getItem(data.email));
+      if (userData && userData.password === data.password) {
+        setMessageType("success");
+        setMessage(`Welcome back, ${userData.name}!`);
+        localStorage.setItem("loggedInUser", data.email);
+        redirectByRole(userData.category);
+      } else {
+        setMessageType("error");
+        setMessage("Email or password is incorrect.");
+      }
     } else {
       // SIGN UP
       const existingUser = localStorage.getItem(data.email);
@@ -60,7 +56,7 @@ function AuthForm() {
         name: data.name,
         email: data.email,
         password: data.password,
-        category: data.category, 
+        category: data.category,
         branch: data.branch,
       };
 
@@ -72,13 +68,13 @@ function AuthForm() {
       redirectByRole(newUser.category);
     }
 
-    reset(); // Clear form
+    reset();
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 px-4">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-900">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
 
