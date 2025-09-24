@@ -72,39 +72,42 @@ function Branche() {
   };
 
   return (
-    <div className="pt-6">
-      {/* Branch buttons */}
-      <div className="flex flex-wrap gap-4 mb-8 justify-center">
-        {branches.map((branch, idx) => (
-          <button
-            key={idx}
-            onClick={() => handleBranchClick(idx)}
-            className={`px-6 py-3 rounded-lg font-bold text-lg border-2 transition-colors duration-200
-              ${
-                openBranch === idx
-                  ? "bg-blue-600 border-blue-600 text-white shadow-lg"
-                  : "bg-blue-50 border-blue-600 text-blue-600 hover:bg-blue-100"
-              }`}
-          >
-            {branch.name}
-          </button>
-        ))}
-      </div>
-
-      {/* Branch details */}
-      {openBranch !== null && (
-        <div className="max-w-md mx-auto bg-blue-50 border-2 border-blue-600 rounded-lg p-6 shadow-lg">
-          <h2 className="text-center text-2xl font-bold text-blue-600 mb-4">
-            {branches[openBranch].name}
-          </h2>
-          <p className="text-gray-800 mb-4">{branches[openBranch].description}</p>
-          <ul className="list-disc list-inside text-blue-600">
-            {branches[openBranch].campuses.map((campus, cidx) => (
-              <li key={cidx}>{campus}</li>
-            ))}
-          </ul>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 py-10">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold text-center text-blue-900 mb-10">Our Branches</h1>
+        {/* Branch buttons */}
+        <div className="flex flex-wrap gap-4 mb-8 justify-center">
+          {branches.map((branch, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleBranchClick(idx)}
+              className={`px-6 py-3 rounded-lg font-bold text-lg border-2 transition-colors duration-200
+                ${
+                  openBranch === idx
+                    ? "bg-blue-600 border-blue-600 text-white shadow-lg"
+                    : "bg-blue-50 border-blue-600 text-blue-600 hover:bg-blue-100"
+                }`}
+            >
+              {branch.name}
+            </button>
+          ))}
         </div>
-      )}
+
+        {/* Branch details */}
+        {openBranch !== null && (
+          <div className="max-w-xl mx-auto bg-white border-2 border-blue-600 rounded-2xl p-8 shadow-xl transition-all duration-300">
+            <h2 className="text-center text-2xl font-bold text-blue-700 mb-4">
+              {branches[openBranch].name}
+            </h2>
+            <p className="text-gray-700 mb-4">{branches[openBranch].description}</p>
+            <ul className="list-disc list-inside text-blue-700">
+              {branches[openBranch].campuses.map((campus, cidx) => (
+                <li key={cidx}>{campus}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
