@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const Admin = () => {
-  // Dummy admin profile
+  
   const adminProfile = {
     name: "John Doe",
     email: "admin@natesa.com",
   };
 
-  // State for BECs and Students
+  
   const [becList, setBecList] = useState(["BEC 1", "BEC 2"]);
   const [studentList, setStudentList] = useState(["Student A", "Student B"]);
 

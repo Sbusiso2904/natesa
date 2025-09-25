@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// Mock initial data for the logged-in student
+
 const initialStudentBECData = [
   { id: 1, committee: "Robotics Club", role: "Member", eventsAttended: 2 },
   { id: 2, committee: "Tech Society", role: "Leader", eventsAttended: 5 },
@@ -12,7 +12,7 @@ const BECDashboard = () => {
   const [newRole, setNewRole] = useState("");
   const [newEvents, setNewEvents] = useState("");
 
-  // Add new BEC participation
+
   const handleAdd = () => {
     if (!newCommittee || !newRole || !newEvents) return;
     const newEntry = {
@@ -27,12 +27,12 @@ const BECDashboard = () => {
     setNewEvents("");
   };
 
-  // Delete a participation entry
+
   const handleDelete = (id) => {
     setBecData(becData.filter((item) => item.id !== id));
   };
 
-  // Edit a participation entry
+  
   const handleEdit = (id, field, value) => {
     setBecData(
       becData.map((item) =>

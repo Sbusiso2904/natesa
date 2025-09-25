@@ -27,28 +27,6 @@ function AuthForm() {
     }
   };
 
-  // const onSubmit = async (data) => {
-  // try {
-  //   if (isLogin) {
-  //     // LOGIN
-  //     const response = await axios.post("http://localhost:8080/api/auth/login", data);
-  //     setMessageType("success");
-  //     setMessage("Welcome back!");
-
-  //     // redirect based on category
-  //     redirectByRole(response.data.category);
-  //   } else {
-  //     // SIGNUP
-  //     const response = await axios.post("http://localhost:8080/api/auth/signup", data);
-  //     setMessageType("success");
-  //     setMessage(response.data);
-  //     redirectByRole(data.category);
-  //   }
-  // } catch (error) {
-  //   setMessageType("error");
-  //   setMessage(error.response?.data || "Something went wrong");
-  // }
-
 
 
   const onSubmit = async (data) => {

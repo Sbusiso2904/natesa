@@ -19,9 +19,8 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* Dashboard Content */}
       <div className="pt-24 max-w-7xl mx-auto px-6">
-        {/* Nested routes will render here */}
+     
         <Outlet />
       </div>
     </div>

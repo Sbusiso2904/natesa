@@ -1,16 +1,10 @@
-
-
-
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import AuthForm from "./pages/AuthForm";
 import Branche from "./pages/Branche";
-
 import StudentDash from "./pages/StudentDash";
 import MembersList from "./pages/MembersList";
 import BECDashboard from "./pages/BECDashboard";
@@ -26,6 +20,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-200">
+        
         {/* Fixed Header + Navigation Bar */}
         <nav className="fixed top-0 left-0 w-full bg-gray-100 shadow-md z-50">
           <div className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4">
@@ -51,6 +46,7 @@ function App() {
               element={
                 <div className="max-w-6xl mx-auto">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    
                     {/* Events Card */}
                     <Link
                       to="/events"
@@ -90,7 +86,7 @@ function App() {
                     </Link>
                   </div>
 
-                  {/* Render Home content */}
+     
                   <Home />
                 </div>
               }

@@ -1,7 +1,7 @@
 import React from "react";
 
 function About() {
-  // Example leadership data (replace with DB fetch in future)
+
   const leadership = [
     { name: "Dr. Sbusiso Nkosi", role: "Founder & CEO" },
     { name: "Andiswa msweli", role: "Operations Manager" },
